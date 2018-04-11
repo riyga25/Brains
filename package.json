@@ -1,0 +1,30 @@
+{
+  "name": "zebrains",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/riyga25/zeBrains.git"
+  },
+  "author": "riyga",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/riyga25/zeBrains/issues"
+  },
+  "homepage": "https://gitlab.com/riyga25/zeBrains#README",
+  "devDependencies": {
+    "autoprefixer": "^8.2.0",
+    "cssnano": "^3.10.0",
+    "del": "^3.0.0",
+    "gulp": "^3.9.1",
+    "gulp-concat": "^2.6.1",
+    "gulp-postcss": "^7.0.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-uglifyjs": "^0.6.2",
+    "precss": "^3.1.0"
+  }
+}

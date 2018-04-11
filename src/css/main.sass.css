@@ -1,0 +1,668 @@
+$red : #ef4044;
+$gray-dark : #7f8a90;
+$gray : #e2e1e1;
+$dark : #282828;
+$blue : #2980b9;
+$tablet : 1023px;
+$mobile : 640px;
+
+@font-face {
+  font-family: 'Ubuntu';
+  src: url('../fonts/ubuntu/Ubuntu-M.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Ubuntu';
+  src: url('../fonts/ubuntu/Ubuntu-L.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Ubuntu';
+  src: url('../fonts/ubuntu/Ubuntu-B.ttf') format('truetype');
+  font-weight: bold;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Ubuntu';
+  src: url('../fonts/ubuntu/Ubuntu-R 2.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+@keyframes arrow {
+  0%   {bottom:4%;}
+  20%  {bottom:7%;}
+  35%  {bottom:4%;}
+  50%  {bottom:5.5%;}
+  65%  {bottom:4%;}
+  100% {bottom:4%;}
+}
+body{
+  font-family: 'Ubuntu', sans-serif;
+  text-align: center;
+  color: #282828;
+}
+.red-line::after{
+  position: relative;
+  display: block;
+  content: '';
+  background: $red;
+  height: 10px;
+  width: 30%;
+  max-width: 220px;
+  margin: 0 auto;
+}
+.arrow{
+  cursor: pointer;
+  position: absolute;
+  animation: arrow 2s infinite ease-in-out;
+  width: 42px;
+  height: 42px;
+  display: block;
+  left: calc(50% - 21px);
+  bottom: -20px;
+
+  &::before,
+  &::after{
+    width: 30px;
+    height: 9px;
+    border-radius: 4.5px;
+    content: '';
+    position: absolute;
+    left: calc(50% - 8px);
+    top: 50%;
+    background: white;
+  }
+  &::before{
+    transform: rotate(-45deg);
+  }
+  &::after{
+    transform: rotate(45deg) translate(-11px, 11px);
+  }
+}
+.owl{
+  &-prev,
+  &-next{
+    height: 50px;
+    width: 40px;
+    position: absolute;
+    cursor: pointer;
+    top: calc(50% - 25px);
+    background: none;
+    border: none;
+    outline: none;
+
+    &:hover{
+      &::after,
+      &::before{
+        background: #FFFFFF;
+      }
+    }
+  }
+  &-prev{
+    left: 7%;
+
+    &::before{
+      transform: rotate(-45deg);
+    }
+    &::after{
+      transform: rotate(45deg) translate(11px, 11px);
+    }
+  }
+  &-next{
+    right: 7%;
+
+    &::before{
+      transform: rotate(45deg);
+    }
+    &::after{
+      transform: rotate(-45deg) translate(-11px, 11px);
+    }
+  }
+  &-prev::before,
+  &-next::before,
+  &-prev::after,
+  &-next::after{
+    content: '';
+    position: absolute;
+    background: $gray-dark;
+    width: 30px;
+    height: 9px;
+    border-radius: 4.5px;
+    left: calc(50% - 15px);
+    top: 12px;
+  }
+
+}
+.block{
+  padding: 50px 15px 90px;
+  box-sizing: border-box;
+
+  &__title{
+    text-transform: uppercase;
+    font-size: 40px;
+    line-height: 122px;
+  }
+}
+
+/*###################home#####################*/
+.burger{
+  position: fixed;
+  width: 50px;
+  height: 50px;
+  border-radius: 25px;
+  left: 15px;
+  top: 15px;
+  cursor: pointer;
+  z-index: 999;
+  display: none;
+  background: #000;
+
+  span,
+  span::before,
+  span::after{
+    display: block;
+    content: '';
+    position: absolute;
+    width: 30px;
+    height: 3px;
+    background-color: white;
+    transition-duration: 0.3s;
+  }
+  span{
+    top: 50%;
+    left: calc(50% - 15px);
+
+    &::before{
+      top: -9px;
+    }
+    &::after{
+      top: 9px;
+    }
+  }
+
+  &_active{
+    span{
+      background: transparent;
+
+      &::before{
+        transform: translateY(9px) rotate(45deg);
+      }
+      &::after{
+        transform: translateY(-9px) rotate(-45deg);
+      }
+    }
+  }
+
+}
+.nav{
+  position: absolute;
+  left: 55px;
+  z-index: 80;
+  top: 0;
+  bottom: 0;
+
+  &__container{
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+  }
+
+  &__item{
+    color: white;
+    text-decoration: none;
+    font-size: 20px;
+    writing-mode: vertical-rl;
+    transform: rotate(180deg);
+    padding: 20px 0;
+
+    &:hover{
+      transition: color 0.3s;
+      color: $red;
+    }
+  }
+
+  &_mobile{
+    display: none;
+  }
+
+  &_scroll{
+    position: fixed;
+    left: 0;
+
+    .nav__container{
+      background: #000;
+      padding-left: 20px;
+      padding-right: 10px;
+    }
+
+    .nav__item{
+      color: #ffffff;
+      background: #000;
+
+      &:hover{
+        transition: color 0.3s;
+        color: $red;
+      }
+    }
+  }
+
+}
+.home{
+  position: relative;
+  padding: 130px 0;
+  overflow: hidden;
+
+  &__bg{
+    background: url("../img/technology.png") no-repeat;
+    background-size: cover;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: -1;
+  }
+
+  .red-line::after{
+    top: 30px;
+  }
+}
+.home-info{
+  color: white;
+  z-index: 20;
+
+  &__title{
+    text-transform: uppercase;
+    font-size: 78px;
+
+    span{
+      color: $red;
+    }
+  }
+
+  &__desc{
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-weight: 300;
+    line-height: 125px;
+    font-size: 32px;
+  }
+
+  &__ps{
+    font-weight: 300;
+    letter-spacing: 13.3px;
+    margin: 105px 0 0;
+    font-size: 28px;
+  }
+
+  &__button{
+    border: 3px solid white;
+    color: white;
+    display: block;
+    text-decoration: none;
+    margin: 0 auto;
+    letter-spacing: 2px;
+    font-weight: 300;
+    padding: 20px 0;
+    max-width: 297px;
+    font-size: 20px;
+    margin-top: 100px;
+
+    &:hover{
+      border: 3px solid $red;
+      background: $red;
+      transition: all 0.3s;
+    }
+  }
+}
+/*###################about#####################*/
+.about{
+  max-width: 1000px;
+  margin: 0 auto;
+
+  &__text{
+    margin: 30px 0 0;
+    color: $gray-dark;
+    padding-top: 15px;
+    line-height: 27px;
+    font-size: 19px;
+    letter-spacing: 0.5px;
+  }
+}
+.icon{
+  position: relative;
+  padding: 65px 0 0;
+  display: inline-block;
+
+  &:nth-child(2){
+    padding-left:165px;
+    padding-right: 165px;
+  }
+
+  &__name{
+    margin: 32px 0 0;
+    font-size: 22px;
+    text-transform: uppercase;
+    font-weight: 500;
+  }
+
+  &__pic{
+    width: 175px;
+    height: 175px;
+    margin: 0 auto;
+    position: relative;
+    background-size:contain;
+
+    &::after{
+      content: 'проектов';
+      text-transform: uppercase;
+      position: absolute;
+      right: -110px;
+      top: 60px;
+      font-size: 18px;
+      font-weight: 500;
+    }
+    &::before{
+      text-shadow:
+              -0 -6px 1px #FFFFFF, 0 -6px 1px #FFFFFF, -0 6px 1px #FFFFFF, 0 6px 1px #FFFFFF,
+              -6px -0   1px #FFFFFF, 6px -0   1px #FFFFFF, -6px  0   1px #FFFFFF, 6px  0   1px #FFFFFF,
+              -1px -6px 1px #FFFFFF, 1px -6px 1px #FFFFFF, -1px  6px 1px #FFFFFF, 1px  6px 1px #FFFFFF,
+              -6px -1px 1px #FFFFFF, 6px -1px 1px #FFFFFF, -6px  1px 1px #FFFFFF, 6px  1px 1px #FFFFFF,
+              -2px -6px 1px #FFFFFF, 2px -6px 1px #FFFFFF, -2px  6px 1px #FFFFFF, 2px  6px 1px #FFFFFF,
+              -6px -2px 1px #FFFFFF, 6px -2px 1px #FFFFFF, -6px  2px 1px #FFFFFF, 6px  2px 1px #FFFFFF,
+              -3px -6px 1px #FFFFFF, 3px -6px 1px #FFFFFF, -3px  6px 1px #FFFFFF, 3px  6px 1px #FFFFFF,
+              -6px -3px 1px #FFFFFF, 6px -3px 1px #FFFFFF, -6px  3px 1px #FFFFFF, 6px  3px 1px #FFFFFF,
+              -4px -6px 1px #FFFFFF, 4px -6px 1px #FFFFFF, -4px  6px 1px #FFFFFF, 4px  6px 1px #FFFFFF,
+              -6px -4px 1px #FFFFFF, 6px -4px 1px #FFFFFF, -6px  4px 1px #FFFFFF, 6px  4px 1px #FFFFFF,
+              -5px -6px 1px #FFFFFF, 5px -6px 1px #FFFFFF, -5px  6px 1px #FFFFFF, 5px  6px 1px #FFFFFF,
+              -6px -5px 1px #FFFFFF, 6px -5px 1px #FFFFFF, -6px  5px 1px #FFFFFF, 6px  5px 1px #FFFFFF,
+              -6px -6px 1px #FFFFFF, 6px -6px 1px #FFFFFF, -6px  6px 1px #FFFFFF, 6px  6px 1px #FFFFFF,
+              -6px -6px 1px #FFFFFF, 6px -6px 1px #FFFFFF, -6px  6px 1px #FFFFFF, 6px  6px 1px #FFFFFF;
+      position: absolute;
+      font-size: 50px;
+      top: 5px;
+      left: 150px;
+    }
+  }
+
+  &_one{
+    .icon__pic::before{
+      content: '55';
+    }
+  }
+  &_two{
+    .icon__pic::before{
+      content: '11';
+    }
+  }
+  &_three{
+    .icon__pic::before{
+      content: '4';
+    }
+  }
+}
+/*###################portfolio#####################*/
+.portfolio{
+  background: $gray;
+
+  &__button{
+    border: 3px solid black;
+    margin: 0 auto;
+    letter-spacing: 2px;
+    padding: 20px 0;
+    max-width: 395px;
+    font-size: 20px;
+    text-transform: uppercase;
+    margin-top: 100px;
+    cursor: pointer;
+
+    &:hover{
+      border: 3px solid $red;
+      color: white;
+      background: $red;
+      transition: background 0.3s;
+    }
+  }
+
+  &__container{
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+
+  &__row{
+    margin: 0 -20px;
+  }
+}
+.card{
+  height: 160px;
+  background-repeat: no-repeat;
+  background-size: contain;
+  max-width: 217px;
+  width: 100%;
+  display: inline-block;
+  margin: 60px 20px 0;
+}
+/*###################partners#####################*/
+.partners{
+  position: relative;
+  height: 578px;
+
+  &__bg{
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    background: url('../img/partners.jpg') center no-repeat;
+    background-size: cover;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1;
+    filter: grayscale(100%);
+    filter: gray;
+
+    &::after{
+      position: absolute;
+      content: '';
+      background: rgba(0,0,0,0.6);
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 2;
+    }
+  }
+
+  &__title{
+    color: white;
+    position: relative;
+    z-index: 10;
+    top: 152px;
+    font-size: 36px;
+    letter-spacing: 13.6px;
+  }
+
+  &__slider{
+    z-index: 999;
+    position: relative;
+    top: 220px;
+  }
+}
+.slider{
+  width: 66.66666667%;
+  margin: 0 auto;
+
+  &__item{
+    height: 100px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: bottom;
+  }
+}
+/*###################contact#####################*/
+.contact{
+  background: $gray;
+}
+.form{
+  margin: 60px auto 0;
+  max-width: 560px;
+
+  &__item{
+    border-radius: 5px;
+    border: 1px solid $blue;
+    padding: 20px 0 20px 35px;
+    display: block;
+    margin: 13px 0 0 0;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    color: $gray-dark;
+  }
+
+  &__button{
+    background: $red;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    display: block;
+    margin: 25px auto 0;
+    padding:20px 71px;
+    font-size: 22px;
+    font-weight: 300;
+    cursor: pointer;
+  }
+}
+/*###################footer#####################*/
+.footer{
+  background: #282828;
+  color: white;
+  padding: 25px 0;
+  width: 100vw;
+  max-width: 100%;
+}
+
+@media(max-width: $tablet){
+  .burger{
+    display: block;
+  }
+  .partners{
+    height: 450px;
+
+    &__title{
+      top: 100px;
+    }
+
+    &__slider{
+      top: 180px;
+    }
+  }
+  .owl{
+    &-prev{
+      left: 5%;
+    }
+    &-next{
+      right: 5%;
+    }
+  }
+  .card{
+    margin-top: 35px;
+  }
+  .block{
+    padding: 30px 15px 40px;
+  }
+  .portfolio{
+    &__button{
+      margin-top: 20px;
+    }
+  }
+  .icon{
+    display: block;
+
+    &:nth-child(2) {
+      padding-left: 0;
+      padding-right: 0;
+    }
+
+  }
+  .nav{
+    display: none;
+
+    &_mobile{
+      display: block;
+      background: rgba(0,0,0,0.8);
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: -100%;
+      z-index: 900;
+      padding-top: 70px;
+      transition: left 0.7s;
+
+      .nav__item{
+        transform: rotate(0deg);
+        writing-mode: lr-tb;
+        padding: 25px 0;
+        display: block;
+      }
+    }
+    &_active{
+      left: 0;
+      position: fixed;
+    }
+  }
+}
+
+@media (max-width: $mobile) {
+  .home-info{
+
+    &__title{
+      font-size: 55px;
+    }
+    &__desc{
+      line-height: 30px;
+      font-size: 26px;
+      padding-top: 30px;
+    }
+    &__ps{
+      font-size: 28px;
+      letter-spacing:5px;
+    }
+  }
+  .icon{
+    &__pic{
+      width: 130px;
+      height: 130px;
+
+      &::before{
+        left: 115px;
+
+      }
+      &::after{
+        right: -89px;
+        font-size: 14px;
+
+      }
+    }
+  }
+  .card{
+    margin-top: 15px;
+  }
+  .about{
+    &__text{
+      line-height: 24px;
+      font-size: 18px;
+    }
+  }
+  .partners{
+    &__title{
+      font-size: 30px;
+    }
+  }
+}
+
+
+

@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="assets/css/main.min.css">
+    <title>Test landing</title>
+</head>
+<body>
+    <section id="home" class="home">
+        <div class="home__bg"></div>
+        <div class="burger">
+            <span></span>
+        </div>
+        <nav class="nav">
+            <div class="nav__container">
+                <a href="#contact" class="nav__item">Оставить заявку</a>
+                <a href="#partners" class="nav__item">Партнеры</a>
+                <a href="#portfolio" class="nav__item">Портфолио</a>
+                <a href="#about" class="nav__item">О нас</a>
+                <a href="#home" class="nav__item">Главная</a>
+            </div>
+        </nav>
+        <div class="nav_mobile">
+            <a href="#home" class="nav__item">Главная</a>
+            <a href="#about" class="nav__item">О нас</a>
+            <a href="#portfolio" class="nav__item">Портфолио</a>
+            <a href="#partners" class="nav__item">Партнеры</a>
+            <a href="#contact" class="nav__item">Оставить заявку</a>
+        </div>
+        <div class="home-info">
+            <div class="home-info__title">
+                <span>Ze</span>brains
+            </div>
+            <div class="home-info__desc red-line">Служба развития сайтов</div>
+            <div class="home-info__ps">высочайший уровень сервиса</div>
+            <a href="#contact" class="home-info__button">
+                Получить помощь
+            </a>
+            <a href="#about" class="arrow"></a>
+        </div>
+    </section>
+    <section id="about" class="about block">
+        <div class="block__title red-line">
+            О нас
+        </div>
+        <div class="about__text">
+            Мы оказываем полный спектр услуг по информационно-техническому сопровождению веб ресурсов. <br>
+            Мы с удовольствием Вас проконсультируем, создадим прототип, нарисуем дизайн, <br>
+            сделаем верстку, запрограммируем и протестируем функционал. <br>
+            А также поможем создать и разместить контент.
+        </div>
+        <div class="about__icons">
+            <div class="icon icon_one">
+                <div class="icon__pic" style="background-image: url('src/img/about-3.png')"></div>
+                <div class="icon__name">Дизайн</div>
+            </div>
+            <div class="icon icon_two">
+                <div class="icon__pic" style="background-image: url('src/img/about-2.png')"></div>
+                <div class="icon__name">Разработка</div>
+            </div>
+            <div class="icon icon_three">
+                <div class="icon__pic" style="background-image: url('src/img/about-1.png')"></div>
+                <div class="icon__name">Тестирование</div>
+            </div>
+        </div>
+    </section>
+    <section class="portfolio block" id="portfolio">
+        <div class="block__title red-line">
+            Портфолио
+        </div>
+        <div class="portfolio__container">
+            <div class="portfolio__row porfolio__row_one">
+                <div class="card" style="background-image: url('assets/img/1.png')"></div>
+                <div class="card" style="background-image: url('assets/img/2.png')"></div>
+                <div class="card" style="background-image: url('assets/img/3.png')"></div>
+                <div class="card" style="background-image: url('assets/img/7.png')"></div>
+                <div class="card" style="background-image: url('assets/img/6.png')"></div>
+                <div class="card" style="background-image: url('assets/img/5.png')"></div>
+                <div class="card" style="background-image: url('assets/img/4.png')"></div>
+            </div>
+            <div class="portfolio__row porfolio__row_two">
+            </div>
+        </div>
+        <div class="portfolio__button">
+            Все портфолио
+        </div>
+    </section>
+    <section class="partners" id="partners">
+        <div class="partners__title">
+            Наши партнеры
+        </div>
+        <div class="partners__slider">
+            <div class="slider owl-carousel">
+                <div class="slider__item" style="background-image: url('assets/img/logo-1.png')">
+                </div>
+                <div class="slider__item" style="background-image: url('assets/img/logo-2.png')">
+                </div>
+                <div class="slider__item" style="background-image: url('assets/img/logo-3.png')">
+                </div>
+                <div class="slider__item" style="background-image: url('assets/img/logo-4.png');padding: 10px">
+                </div>
+                <div class="slider__item" style="background-image: url('assets/img/logo-5.png')">
+                </div>
+            </div>
+        </div>
+        <div class="partners__bg"></div>
+    </section>
+    <section class="contact block" id="contact">
+        <div class="block__title red-line">
+            Контакты
+        </div>
+        <form action="" class="form">
+            <input class="form__item" name="name" placeholder="Ваше имя" type="text" required>
+            <input class="form__item" name="phone" placeholder="Ваш E-Mail" type="email" required>
+            <textarea class="form__item" name="message" placeholder="Ваше сообщение" required cols="30" rows="6"></textarea>
+            <button class="form__button" type="submit">Отправить</button>
+        </form>
+    </section>
+    <footer class="footer">
+        © 2018 zebrains
+    </footer>
+</body>
+<script src="assets/js/main.min.js"></script>
+</html>
